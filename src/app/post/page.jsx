@@ -1,0 +1,35 @@
+import Link from "next/link";
+import React from "react";
+import style from "./post.module.css";
+
+export const fetchData = async () => {
+  const postdata = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await postdata.json();
+  return data;
+};
+
+const posts = async () => {
+  const data = await fetchData();
+  return (
+    <div>
+      <div className="grid grid-cols-3 gap-10 ">
+        {data.map((singleData) => (
+          <div
+            key={singleData.id}
+            className="border-2 border-blue-700 text-green-600"
+          >
+            <h1 className={`text-2xl  ${style.title}`}>{singleData.title}</h1>
+            <p>{singleData.body}</p>
+            <Link href={`/post/${singleData.id}`}>
+              <button className="bg-yellow-400 px-2 py-1 rounded">
+                details
+              </button>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default posts;
