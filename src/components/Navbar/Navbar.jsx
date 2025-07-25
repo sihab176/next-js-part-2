@@ -4,6 +4,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div>
+      
       <nav className="bg-[#354f52] py-6 px-20">
         <ul className="flex justify-center gap-20">
           <Link href="/">

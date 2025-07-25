@@ -1,7 +1,9 @@
-'use client'
+"use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const AddProduct = () => {
+  const router = useRouter();
   const [product, setProduct] = useState({
     name: "",
     price: "",
@@ -27,8 +29,9 @@ const AddProduct = () => {
         },
         body: JSON.stringify(product),
       });
-      console.log("Submitted:", res.data);
-      alert("Product added successfully!");
+      //   console.log("Submitted:", res.data);
+      //   alert("Product added successfully!");
+      router.push("/product");
       // Clear form
       setProduct({
         name: "",
