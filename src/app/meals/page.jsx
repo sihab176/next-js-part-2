@@ -34,7 +34,7 @@ const mealPage = async ({ searchParams }) => {
 
       <div className="grid grid-cols-4 w-11/12 mx-auto">
         {mealData?.map((meal) => (
-          <div key={meal.strMeal} className="border m-4">
+          <div key={meal.strMeal} className="border m-4 bg-[#84a98c] p-4 rounded">
             <div className="flex justify-center items-center">
               <Image
                 className=" "
@@ -47,7 +47,7 @@ const mealPage = async ({ searchParams }) => {
             <p className="text-2xl text-center"> {meal?.strMeal} </p>
             <div className="flex justify-center items-center mb-2">
               <Link href={`/meals/${meal.idMeal}`}>
-                <button className="bg-green-600 px-2 py-1 rounded">
+                <button className="bg-green-600 px-2 py-1 rounded cursor-pointer">
                   Details
                 </button>
               </Link>

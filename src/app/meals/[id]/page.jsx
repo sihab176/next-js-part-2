@@ -22,10 +22,9 @@ const MealsDetails = async ({ params }) => {
   const data = await handleSingleData(id);
   const [mainData] = await data.meals;
 
-
   return (
     <div>
-      <div className="border m-4 flex justify-center items-center">
+      <div className="border m-4 flex justify-center items-center mx-20 px-10">
         <div className=" flex-1">
           <img className=" w-[400px]" src={`${mainData.strMealThumb}`} alt="" />
         </div>
@@ -33,7 +32,10 @@ const MealsDetails = async ({ params }) => {
           <p className="text-2xl text-green-500"> {mainData?.strMeal} </p>
           <p className=" "> Area : {mainData?.strArea} </p>
           <p className=" "> Category : {mainData?.strCategory} </p>
-          <p className=" text-gray-500"> Description : {mainData?.strInstructions} </p>
+          <p className=" text-gray-500">
+            {" "}
+            Description : {mainData?.strInstructions}{" "}
+          </p>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ const MealSearch = () => {
   return (
     <div className="flex justify-center">
       <input
-        className="border-blue-700 border "
+        className="border-[#c6ac8f] border-2  py-2 w-[460px] rounded rounded-full"
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}

@@ -2,6 +2,14 @@ import Link from "next/link";
 import React from "react";
 import style from "./post.module.css";
 
+import { Give_You_Glory } from "next/font/google";
+// ! ======= FONT ============>
+const gloryFont = Give_You_Glory({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+//  handle fetch data======>
 export const fetchData = async () => {
   const postdata = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await postdata.json();
@@ -19,9 +27,11 @@ const posts = async () => {
         {data.map((singleData) => (
           <div
             key={singleData.id}
-            className="border-2 border-blue-700 text-green-600"
+            className="border-2 border-[#cad2c5] text-green-600 bg-[#52796f]"
           >
-            <h1 className={`text-2xl  ${style.title}`}>{singleData.title}</h1>
+            <h1 className={`text-2xl  ${style.title}  ${gloryFont.className}`}>
+              {singleData.title}
+            </h1>
             <p>{singleData.body}</p>
             <Link href={`/post/${singleData.id}`}>
               <button className="bg-yellow-400 px-2 py-1 rounded">
