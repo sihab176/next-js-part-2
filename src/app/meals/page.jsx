@@ -10,17 +10,17 @@ export const metadata = {
 const mealPage = async ({ searchParams }) => {
   const query = await searchParams;
 
-  //*    HANDLE FETCH =========>
+  //   HANDLE FETCH =========>
   const fetchMeals = async () => {
     try {
       const res = await fetch(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${query.search}`
       );
       const data = await res.json();
-      // setMealData(data?.meals || []);
+
       return data.meals;
     } catch (error) {
-      console.log(error);
+
     }
   };
 
@@ -34,8 +34,11 @@ const mealPage = async ({ searchParams }) => {
 
       <div className="grid grid-cols-4 w-11/12 mx-auto">
         {mealData?.map((meal) => (
-          <div key={meal.strMeal} className="border m-4 bg-[#84a98c] p-4 rounded">
-            <div className="flex justify-center items-center">
+          <div
+            key={meal.strMeal}
+            className="border m-4 bg-[#84a98c] p-4 rounded relative z-10 overflow-hidden group"
+          >
+            <div className="flex justify-center items-center relative z-10 ">
               <Image
                 className=" "
                 height={680}
@@ -43,6 +46,17 @@ const mealPage = async ({ searchParams }) => {
                 src={`${meal.strMealThumb}`}
                 alt=""
               />
+              <span className="absolute bottom-0 left-0 w-full h-0 bg-gradient-to-t from-indigo-500 transition-all duration-700 group-hover:h-full z-0  "></span>
+              {/* Hidden text that fades in on hover */}
+              <div className="absolute inset-0 p-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10">
+                <h1 className="text-2xl font-bold text-black">
+                  this is good for health
+                </h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae cum tempora tempore quasi. Vel, ad.
+                </p>
+              </div>
             </div>
             <p className="text-2xl text-center"> {meal?.strMeal} </p>
             <div className="flex justify-center items-center mb-2">

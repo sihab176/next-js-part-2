@@ -22,7 +22,8 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/items", {
+      const { NEXT_PUBLIC_SERVER_URL } = process.env;
+      const res = await fetch(`${NEXT_PUBLIC_SERVER_URL}/api/items`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

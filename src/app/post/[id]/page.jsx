@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
 const postDetails = async ({ params }) => {
   const id = await params.id;
   const singleData = await getSinglePost(id);
-  console.log(singleData);
+  // console.log(singleData);
 
   return (
     <div className="text-center w-[500px]">
