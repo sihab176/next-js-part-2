@@ -1,8 +1,9 @@
 import React from "react";
 
-export const dynamic = "force-dynamic"; //* this is for force dynamic rendering
+export const dynamic = "force-dynamic"; // this is for force dynamic rendering
 const ProductList = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
+
   const res = await fetch(`${baseUrl}/api/items`);
 
   if (!res.ok) {

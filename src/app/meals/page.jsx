@@ -43,7 +43,7 @@ const mealPage = async ({ searchParams }) => {
                 className=" "
                 height={680}
                 width={680}
-                src={`${meal.strMealThumb}`}
+                src={`${meal?.strMealThumb || "/fallback.png"}`}
                 alt=""
               />
               <span className="absolute bottom-0 left-0 w-full h-0 bg-gradient-to-t from-indigo-500 transition-all duration-700 group-hover:h-full z-0  "></span>

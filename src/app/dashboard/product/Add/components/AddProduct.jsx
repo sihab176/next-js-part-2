@@ -22,15 +22,17 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { NEXT_PUBLIC_SERVER_URL } = process.env;
-      const res = await fetch(`${NEXT_PUBLIC_SERVER_URL}/api/items`, {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
+      const res = await fetch(`${baseUrl}/api/items`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(product),
       });
-      //   console.log("Submitted:", res.data);
+      // console.log("Submitted:", res.data);
+      console.log("product", product);
       //   alert("Product added successfully!");
       router.push("/product");
       // Clear form
