@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📌 Next.js Authentication & CRUD Website
 
-## Getting Started
+This is a **full-stack Next.js application** built with modern technologies.  
+The project demonstrates **authentication, data fetching, posting, and card-based operations** using **Next.js 15**, **MongoDB**, and **NextAuth**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[learning next js](https://next-js-client-rendering.vercel.app/)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🔑 **Authentication System**
+  - Email/Password login (Credentials Provider)
+  - Google OAuth login (NextAuth)
+  - Secure session management
 
-## Learn More
+- 📝 **CRUD Operations**
+  - Add, update, and delete products/posts
+  - Store data securely in MongoDB
 
-To learn more about Next.js, take a look at the following resources:
+- 🔍 **Data Fetching**
+  - Server-Side Rendering (SSR) for secure session handling
+  - Client-Side Rendering (CSR) for dynamic updates
+  - Secure API routes with authentication checks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🖼 **Card-Based UI**
+  - Posts/Products displayed in responsive cards
+  - Hover effects and interactive design
+  - Detail pages with more info
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📩 **Email Integration**
+  - Using Nodemailer for sending emails (e.g. signup confirmation, notifications)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework:** [Next.js 15](https://nextjs.org/)
+- **Authentication:** [NextAuth.js](https://next-auth.js.org/)
+- **Database:** [MongoDB](https://www.mongodb.com/)
+- **UI:** React 19 + Tailwind CSS
+- **Email Service:** Nodemailer
+- **Runtime:** Node.js
+
+---
+
+## 📦 Installed Packages
+
+```json
+{
+  "mongodb": "^6.18.0",
+  "next": "15.4.3",
+  "next-auth": "^4.24.11",
+  "nodemailer": "^6.10.1",
+  "react": "19.1.0",
+  "react-dom": "19.1.0"
+}
