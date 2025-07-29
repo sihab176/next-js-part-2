@@ -1,5 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import dbConnect from "@/lib/dbConnect";
+import GoogleProvider from "next-auth/providers/google";
 export const authOptions={
    providers:[
     CredentialsProvider({
@@ -30,8 +31,13 @@ export const authOptions={
       
 
     }
-  })
+  }),
+      GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
    ],
+
    callbacks: {
 
   async session({ session, token, user }) {

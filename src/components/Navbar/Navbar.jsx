@@ -1,9 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import LoginButton from "../LoginButton";
+import { getServerSession } from "next-auth";
+import LogoutButton from "../LogoutButton";
+import { authOptions } from "@/lib/authOptions";
 
-
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getServerSession(authOptions);
   return (
     <div>
       <nav className="bg-[#354f52] py-6 px-20">
@@ -23,8 +26,8 @@ const Navbar = () => {
           <Link href="/product/Add">
             <li>Add product</li>
           </Link>
-          <div className="px-2 py-1 bg-blue-600 rounded">
-            <LoginButton />
+          <div className="">
+            {session?.user ? (<LogoutButton />) : (<LoginButton />)}
           </div>
         </ul>
       </nav>
