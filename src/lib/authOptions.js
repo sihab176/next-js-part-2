@@ -1,6 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import dbConnect from "@/lib/dbConnect";
 import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 export const authOptions={
    providers:[
     CredentialsProvider({
@@ -36,10 +37,38 @@ export const authOptions={
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
+      GitHubProvider({
+    clientId: process.env.GITHUB_ID,
+    clientSecret: process.env.GITHUB_SECRET
+  })
    ],
 
    callbacks: {
+  async signIn({ user, account, profile, email, credentials }) {
+try {
+     if(account){
+    //  console.log({ user, account, profile, email, credentials });
+       const {providerAccountId,provider}=account
+    const {email :user_email, image,name}=user
+    const payload={
+      providerAccountId,
+      provider,
+      user_email,
+      name,
+      image,
+      role: "user"
+    }
+    const isUserExists= await dbConnect("test_user").findOne({providerAccountId})
 
+    if(!isUserExists){
+      await dbConnect("test_user").insertOne(payload)
+    }
+   }
+} catch (error) {
+   return false
+}
+    return true
+  },
   async session({ session, token, user }) {
     if(token){
       session.user.username = token.username
